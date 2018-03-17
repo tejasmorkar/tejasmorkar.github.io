@@ -1,4 +1,6 @@
 *{
+	width: 100%;
+	height: 100%;
 	margin: 0;
 	padding: 0;
 	font-family: 'Expletus Sans', 'Times New Roman';
@@ -15,7 +17,7 @@
 
 .overlay{
 	width: 100%;
-	height: 100vh;
+	height: 100%;
 	background-color: rgba(0,0,0,0.2);
 	display: flex;
 	flex-direction: column;
@@ -28,9 +30,12 @@
 }
 
 #mainHeader{
+	height: auto;
+	width: auto;
 	color: white;
 	margin: 5px;
-	padding: 20px 0 0 700px;
+	padding: 10px;
+	align-self: flex-end;
 	font-size: 5em;
 	text-align: center;
 	text-shadow: 5px 20px 10px rgba(0,0,0,1);
