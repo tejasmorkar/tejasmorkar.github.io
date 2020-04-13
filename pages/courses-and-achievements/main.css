@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    margin: 1em;
+}
+
+.header-text {
+    font-size: 1.5em;
+    letter-spacing: 0.15em;
+
+}
+
+.category {
+    margin: 1em;
+    padding: 1em;
+}
+
+.category-text {
+    font-size: 1.5em;
+    letter-spacing: 0.25em;
+    color: #444444;
+}
+
+.container {
+    padding: 1em;
+    margin: 1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.card {
+    width: 400px;
+    margin: 1em 0em 1em 0em;
+}
+
+.card:hover {
+    cursor: default;
+    color: #646464;
+}
+
+.card-link:hover {
+    cursor: pointer;
+}
+
+.card-image {
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-image>img {
+    height: 100%;
+}
+
+.card-text-box {
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-icon>img {
+    height: 50px;
+}
+
+.card-text {
+    margin: 0em 0em 0em 1em;
+    font-size: 1.25em;
+    letter-spacing: 0.05em;
+    line-height: 1.5em;
+    width: 100%;
+}
