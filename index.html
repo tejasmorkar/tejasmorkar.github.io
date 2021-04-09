@@ -1,49 +1,559 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Tejas Morkar</title>
+        <meta name="title" content="Tejas Morkar" />
+        <meta
+            name="description"
+            content="Tejas Morkar - Student, Programmer, Machine Learning Enthusiast | Diving deep into neural nets"
+        />
+        <meta
+            name="keywords"
+            content="Tejas, Morkar, tejasmorkar, student, developer, machine learning"
+        />
+        <meta name="author" content="Tejas Morkar" />
+        <link rel="stylesheet" href="./style.css" />
+        <link
+            rel="shortcut icon"
+            href="./assets/tm-black-whitebg.png"
+            type="image/png"
+        />
 
-<head>
-  <!-- Meta tag is used for providing information to the Search Engines -->
-  <meta charset="UTF-8">
-  <meta name="google-site-verification" content="FvnXUk1G6EQnEwKc1ZKzD1efQwnXyKOLNyRQgSHkLYc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="description"
-    content="Tejas Morkar - Persuing Bachelors Degree in Computer Engineering from Pimpri Chinchwad College of Engineering, Pune">
-  <meta name="keywords" content="tejas, morkar, portfolio, computer engineering">
-  <meta name="author" content="Tejas Morkar">
-  <title>Tejas Morkar</title>
-  <link rel="stylesheet" href="./index.css">
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://tejasmorkar.codes/" />
+        <meta property="og:title" content="Tejas Morkar" />
+        <meta
+            property="og:description"
+            content="Tejas Morkar - Student, Programmer, Machine Learning Enthusiast | Diving deep into neural nets"
+        />
+        <meta
+            property="og:image"
+            content="https://tejasmorkar.codes/assets/SocialPreviews-tejasmorkar.png"
+        />
 
-  <!-- Favicon Link -->
-  <link rel="shortcut icon" href="images/tm-black-whitebg.png" type="image/PNG">
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://tejasmorkar.codes/" />
+        <meta property="twitter:title" content="Tejas Morkar" />
+        <meta
+            property="twitter:description"
+            content="Tejas Morkar - Student, Programmer, Machine Learning Enthusiast | Diving deep into neural nets"
+        />
+        <meta
+            property="twitter:image"
+            content="https://tejasmorkar.codes/assets/SocialPreviews-tejasmorkar.png"
+        />
+    </head>
+    <body>
+        <div id="main-container">
+            <div id="left-container">
+                <img
+                    id="main-image"
+                    src="./assets/Tejas Morkar.png"
+                    alt="My Photo"
+                />
+                <h1>Tejas Morkar</h1>
+                <p>
+                    Student, Programmer, Machine Learning Enthusiast | Diving
+                    deep into neural nets
+                </p>
+                <div id="icons">
+                    <a
+                        href="https://github.com/tejasmorkar"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img
+                            class="icon-img"
+                            src="./assets/1.png"
+                            alt="GitHub"
+                        />
+                    </a>
+                    <a
+                        href="https://linkedin.com/in/tejasmorkar"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img class="icon-img" src="./assets/2.png" alt="Link" />
+                    </a>
+                    <a
+                        href="https://twitter.com/TejasMorkar"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img class="icon-img" src="./assets/3.png" alt="Link" />
+                    </a>
+                    <a
+                        href="mailto:tejasmorkar@gmail.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <img
+                            class="icon-img"
+                            src="./assets/4.png"
+                            alt="Email"
+                        />
+                    </a>
+                </div>
+                <hr id="main-hr" />
+            </div>
+            <div id="right-container">
+                <div class="title" id="projects">
+                    <h2>Sideline Projects 👨‍💻</h2>
+                    <div class="project-container">
+                        <div class="left-project-container">
+                            <h3>Sketch to Color</h3>
+                            <p>
+                                Sketch to Color Image generation is an
+                                image-to-image translation model using
+                                Conditional Generative Adversarial Networks as
+                                described in the original paper by Phillip
+                                Isola, Jun-Yan Zhu, Tinghui Zhou, Alexei A.
+                                Efros 2016, Image-to-Image Translation with
+                                Conditional Adversarial Networks.
+                            </p>
+                            <p>
+                                The model was trained on the Anime
+                                Sketch-Colorization Pair Dataset available on
+                                Kaggle which contains 14.2k pairs of
+                                Sketch-Color Anime Images. The training of the
+                                model was done for 150 epochs which took
+                                approximately 23 hours on a single GeForce GTX
+                                1060 6GB Graphic Card and 16 GB RAM.
+                            </p>
+                        </div>
+                        <div class="right-project-container">
+                            <img
+                                src="https://tejasmorkar.github.io/sketch-to-color/assets/outputs.gif"
+                                alt="sketch-to-color"
+                            />
+                            <p>
+                                <a
+                                    href="https://tejasmorkar.github.io/sketch-to-color/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >View Project</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                    <div class="project-container">
+                        <div class="left-project-container">
+                            <h3>Sudoku Solver</h3>
+                            <p>
+                                This is a project which takes an input of the
+                                sudoku puzzles as an 81 characters long string
+                                containing the digits from 0 to 9, where 0
+                                represents an unfilled cell of the Sudoku Board.
+                                The objective of the algorithm is to replace all
+                                the zeros with valid digits such that the entire
+                                Sudoku Puzzle is solved. For doing this in a
+                                conventional way, the processor will require to
+                                try all 2*1077 possible combinations in a worst
+                                case scenario which is a huge number. So, to
+                                solve this problem in a comparatively less time,
+                                the Backtracking Algorithm is one of the best
+                                solutions to it.
+                            </p>
+                        </div>
+                        <div class="right-project-container">
+                            <img
+                                src="https://tejasmorkar.github.io/sudoku-solver/assets/SudokuSolverUsingBacktrack.gif"
+                                alt="sudoku-solver"
+                            />
+                            <p>
+                                <a
+                                    href="https://tejasmorkar.github.io/sudoku-solver/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >View Project</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
 
-</head>
+                <div id="community-involvement">
+                    <h2 class="title">Community Involvement 👨‍🎓</h2>
+                    <div class="community-involvement-container">
+                        <img
+                            src="./assets/MSLearn_SA_badge_generic_rgb_300ppi.png"
+                            alt="Microsoft Learn Student Ambassador Program Badge"
+                        />
+                        <h3>Microsoft Learn Student Ambassador</h3>
+                        <h5>2021-Present</h5>
+                        <p>
+                            The Microsoft Learn Student Ambassadors program is a
+                            global group of on-campus ambassadors who are eager
+                            to help students and their communities, lead in
+                            their local tech circles, and develop technical and
+                            career skills for the future. As a Student
+                            Ambassador, one might find themselves organizing a
+                            campus or community hackathon, mentoring other
+                            students, or volunteering with an elementary school
+                            STEM class.
+                        </p>
 
-<body>
-  <header>
-    <nav>
-      <div id="nav-1" class="nav-item">
-        <a href="#">ABOUT ME</a>
-      </div>
-      <div id="nav-2" class="nav-item">
-        <a href="#projects-container">PROJECTS</a>
-      </div>
-      <div id="nav-3" class="nav-item">
-        <a href="#contact-me-container">CONTACT</a>
-      </div>
-    </nav>
-  </header>
+                        <a
+                            href="https://studentambassadors.microsoft.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >Learn More</a
+                        >
+                    </div>
+                    <div class="community-involvement-container">
+                        <img src="./assets/dscpccoelogo.png" alt="DSC PCCoE" />
+                        <h3>Management Head at DSC PCCoE</h3>
+                        <h5>2020-Present</h5>
+                        <p>
+                            Students from all undergraduate or graduate programs
+                            with an interest in growing as a developer are
+                            welcome. A community of Developers, Designers and
+                            Programmers. By joining a DSC, students grow their
+                            knowledge in a peer-to-peer learning environment and
+                            build solutions for local businesses and their
+                            community.
+                        </p>
 
-  <div id="about-me-container" class="container">
-  </div>
+                        <a
+                            href="https://dscpccoe.tech/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >Learn More</a
+                        >
+                    </div>
+                    <div class="community-involvement-container">
+                        <img
+                            src="./assets/XRDS_logo_tagline_m.jpg"
+                            alt="XRDS Magazine"
+                        />
+                        <h3>Department Editor at XRDS</h3>
+                        <h5>2021-Present</h5>
+                        <p>
+                            XRDS, formerly Crossroads, is the flagship academic
+                            magazine for student members of the Association for
+                            Computing Machinery. Issues focus on computer
+                            science topics and are published quarterly in both
+                            print and electronic forms. The magazine is
+                            distributed to tens of thousands of students
+                            worldwide.
+                        </p>
 
-  <div id="projects-container" class="container">
-  </div>
+                        <a
+                            href="https://xrds.acm.org/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >Learn More</a
+                        >
+                    </div>
+                    <div class="community-involvement-container">
+                        <img
+                            src="./assets/PIE&AI logo.png"
+                            alt="Pie & AI Logo"
+                        />
+                        <h3>Pie & AI Event Ambassador</h3>
+                        <h5>2020-Present</h5>
+                        <p>
+                            Pie & AI is a series of DeepLearning.AI meetups
+                            independently hosted by a global AI community.
+                            Events typically include conversations with leaders
+                            in the world, thought-provoking discussions,
+                            networking opportunities with your fellow learners,
+                            hands-on project practice, and pies (or other
+                            desserts you prefer.)
+                        </p>
 
-  <div id="contact-me-container" class="container">
-  </div>
+                        <a
+                            href="https://www.deeplearning.ai/events/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >Learn More</a
+                        >
+                    </div>
+                    <div class="community-involvement-container">
+                        <img
+                            src="./assets/PCCOE ACM Student Chapter Logo.png"
+                            alt="PCCoE ACM Logo"
+                        />
+                        <h3>Webmaster at PCCoE ACM Student Chapter</h3>
+                        <h5>2019-Present</h5>
+                        <p>
+                            I am a webmaster at PCCOE ACM Student Chapter. The
+                            responsibilities include designing and development
+                            of the official website for the chapter, organizing
+                            technical events in the department, bringing new
+                            opportunities for the students in terms of projects,
+                            workshops, and seminars and handling all the digital
+                            functionalities of the chapter.
+                        </p>
 
-  <script src="./index.js"></script>
-</body>
+                        <a
+                            href="https://pccoe.acm.org/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            >Learn More</a
+                        >
+                    </div>
+                </div>
 
+                <div class="title" id="articles">
+                    <h2>Presentations 👨‍🏫</h2>
+                    <div class="presentation-container">
+                        <div class="left-presentation-container">
+                            <h3>
+                                End to End AI Discord Bot - Using NodeJs and
+                                Deploying to Azure App Services
+                            </h3>
+                            <h5>Date: 27th Mar, 2021</h5>
+                            <p>
+                                In this session, an AI enabled discord bot that
+                                uses a Text Toxicity Detection model to warn and
+                                flag unwanted messages on any discord server was
+                                built. The bot was built using the discord.js
+                                library and was deployed on Azure App Services
+                                to make the it available for all the discord
+                                servers.
+                            </p>
+                        </div>
+                        <div class="right-presentation-container">
+                            <a
+                                href="./assets/presentations/end-to-end-ai-discord-bot.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    src="./assets/end-to-end-ai-discord-bot.png"
+                                    alt="End to End AI Discord Bot"
+                                />
+                            </a>
+                            <p>
+                                <a
+                                    href="./assets/presentations/end-to-end-ai-discord-bot.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Download Presentation</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                    <div class="presentation-container">
+                        <div class="left-presentation-container">
+                            <h3>Pie & AI: Pune - Intro to GANs</h3>
+                            <h5>Date: 17th Oct, 2020</h5>
+                            <p>
+                                Pie & AI is a series of DeepLearning.AI meetups
+                                independently hosted by community groups. This
+                                event is hosted by PCCoE ACM Student Chapter.
+                                Special thanks to their support!
+                            </p>
+                            <p>
+                                Pie & AI: Pune - Intro to GANs will be an event
+                                for beginners in the Machine Learning domain who
+                                want to know more about this beautiful idea of
+                                GANs. It will introduce the attendees to GANs,
+                                their various types, and use cases along with a
+                                proper understanding of its concept. The
+                                attendees will leave the event with better
+                                knowledge about it and a clear path of what can
+                                and cannot be done using GANs and will have a
+                                clear idea of where to start studying it.
+                            </p>
+                        </div>
+                        <div class="right-presentation-container">
+                            <a
+                                href="./assets/presentations/pie-ai-pune-intro-to-gans.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    src="./assets/intro-to-gans.png"
+                                    alt="Intro to GANs"
+                                />
+                            </a>
+                            <p>
+                                <a
+                                    href="./assets/presentations/pie-ai-pune-intro-to-gans.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Download Presentation</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                    <div class="presentation-container">
+                        <div class="left-presentation-container">
+                            <h3>Opensource - Why and How?</h3>
+                            <h5>Date: 20th Sep, 2020</h5>
+                            <p>
+                                This is a hands-on workshop for getting started
+                                with open-source collaborations. It was a part
+                                of DSC PCCoE event in partnership with PCCoE ACM
+                                Student Chapter.
+                            </p>
+                        </div>
+                        <div class="right-presentation-container">
+                            <a
+                                href="./assets/presentations/opensource-why-and-how.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <img
+                                    src="./assets/opensource-why-and-how.png"
+                                    alt="Opensource - Why and How"
+                                />
+                            </a>
+                            <p>
+                                <a
+                                    href="./assets/presentations/opensource-why-and-how.pdf"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Download Presentation</a
+                                >
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="title" id="articles">
+                    <h2>My Articles ✍</h2>
+                    <ul>
+                        <li>
+                            <strong>Software is for Humans</strong>
+                            <p>
+                                Software is a set of instructions that a machine
+                                follows. But is that it? Is it just the task
+                                that we humans assign the machines to do or is
+                                it something more than that?
+                                <a
+                                    href="https://medium.com/devscollab/software-is-for-humans-3f3d646b07d0"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Read More...</a
+                                >
+                            </p>
+                        </li>
+                        <li>
+                            <strong
+                                >Beginner-friendly resources for Machine
+                                Learning</strong
+                            >
+                            <p>
+                                Machine Learning is in a stage of booming and
+                                there is a lot of interesting research work
+                                going on. Everyone wants to understand it and
+                                break into AI for utilizing its power.
+                                Unfortunately, it is often perceived as a
+                                miraculous black box that takes some input data
+                                and gives out magical predictions but it has got
+                                so much more to it than that. Students and
+                                developers from various traits and fields want
+                                to start using Machine Learning in their
+                                projects but the important question is, “Where
+                                do I begin with Machine Learning?”
+                                <a
+                                    href="https://towardsdatascience.com/beginner-friendly-resources-for-machine-learning-fd198f844dc3"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Read More...</a
+                                >
+                            </p>
+                        </li>
+                        <li>
+                            <strong
+                                >How to use Streamlit to deploy your ML models
+                                wrapped in beautiful Web Apps</strong
+                            >
+                            <p>
+                                Don’t waste your time learning Django or Flask
+                                and focus more on the Machine Learning part!
+                                <a
+                                    href="https://towardsdatascience.com/how-to-use-streamlit-to-deploy-your-ml-models-wrapped-in-beautiful-web-apps-66e07c3dd525"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Read More...</a
+                                >
+                            </p>
+                        </li>
+                        <li>
+                            <strong
+                                >Sketch-to-Color Image Generation | GANs</strong
+                            >
+                            <p>
+                                Learning to Build a Model for Sketch-to-Color
+                                Image Generation using Conditional GANs.
+                                <a
+                                    href="https://towardsdatascience.com/generative-adversarial-networks-gans-89ef35a60b69"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Read More...</a
+                                >
+                            </p>
+                        </li>
+                        <li>
+                            <strong
+                                >Generative Adversarial Networks | GANs</strong
+                            >
+                            <p>
+                                Understanding GANs in a Simpler way. Referring
+                                to GANs, Yann LeCun, the chief AI Scientist at
+                                Facebook and ACM Turing Award Laureate has
+                                publicly quoted that the Adversarial Training
+                                is, “The most interesting idea in the last 10
+                                years in ML.”
+                                <a
+                                    href="https://towardsdatascience.com/generative-adversarial-networks-gans-8fc303ad5fa1"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    >Read More...</a
+                                >
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div id="misc">
+                    <h2 class="title">Misc 🤹‍♂️</h2>
+                    <ul>
+                        <li>
+                            This website is highly inspired from Andrej
+                            Karpathy's website and is built using pure HTML &
+                            CSS without using any frameworks, encouraged by
+                            <a
+                                href="https://motherfuckingwebsite.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >this satirical website</a
+                            >.
+                        </li>
+                        <li>
+                            You can download my resume from
+                            <a
+                                href="https://drive.google.com/file/d/1g4NCb5Hgef4EAZTAg5w_Lf0x3GvP-Zes/view?usp=sharing"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                >here</a
+                            >.
+                        </li>
+                        <li>
+                            Social media icons on this website are made by
+                            <a
+                                href="https://www.flaticon.com/authors/dave-gandy"
+                                title="Dave Gandy"
+                                >Dave Gandy</a
+                            >
+                            from
+                            <a href="https://www.flaticon.com/" title="Flaticon"
+                                >www.flaticon.com</a
+                            >.
+                        </li>
+                    </ul>
+                </div>
+                <footer>Made with &hearts; by Tejas Morkar.</footer>
+            </div>
+        </div>
+    </body>
 </html>
