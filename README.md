@@ -1,2 +1,2 @@
-# codes
-Project Showcase
+# Portfolio Website
+This is my portfolio website. It will take you through my projects, community involvement, the sessions that I have conducted for curious minds like you, and a lot more! Feel free to reach out to me for anything related to code, coffee and football. How? You'll know once you checkout the website!
