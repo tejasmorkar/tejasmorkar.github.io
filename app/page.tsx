@@ -5,14 +5,14 @@ export default function HomePage() {
     <div className="mx-auto max-w-3xl px-6 py-16 sm:py-24">
       <p className="font-mono text-sm text-accent">Tejas Morkar</p>
       <h1 className="mt-3 text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
-        I build and write about LLM-powered software.
+        Software engineer with a strong interest in deep learning.
       </h1>
       <p className="mt-6 max-w-xl text-base leading-relaxed text-muted">
-        I&apos;m a software engineer at Cohesity, where I work on bringing
-        LLMs into real products with RAG and agents. Before this, I was at
-        Veritas building AI features with LangChain and Azure OpenAI. I live
-        in Pune, India, and I&apos;m always up for a chat about code, coffee
-        and MotoGP.
+        I am a Software Engineer III at Cohesity, working on Gaia, a generative
+        AI assistant built on RAG and LLMs. Before this, I spent two and a half
+        years building AI-driven features for enterprise data protection. I am
+        interested in deep learning broadly, from GANs to large language models.
+        I&apos;m always up for a chat about code, coffee and MotoGP.
       </p>
 
       <div className="mt-10 flex flex-wrap gap-4 text-sm">

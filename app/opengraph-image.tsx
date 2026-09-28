@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Tejas Morkar | I build and write about LLM-powered software.";
+export const alt = "Tejas Morkar | Software engineer with a strong interest in deep learning.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -23,11 +23,11 @@ export default function Image() {
           Tejas Morkar
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 28 }}>
-          <div style={{ fontSize: 76, fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.02em" }}>
-            I build and write about LLM-powered software.
+          <div style={{ fontSize: 66, fontWeight: 700, lineHeight: 1.1, letterSpacing: "-0.02em" }}>
+            Software engineer with a strong interest in deep learning.
           </div>
           <div style={{ fontSize: 32, color: "#9aa0a6" }}>
-            Software Engineer @ Cohesity | RAG, agents and machine learning
+            Software Engineer at Cohesity | Deep Learning and LLMs
           </div>
         </div>
         <div style={{ fontSize: 28, color: "#9aa0a6" }}>tejasmorkar.dev</div>

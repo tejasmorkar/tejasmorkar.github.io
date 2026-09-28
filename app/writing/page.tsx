@@ -4,7 +4,7 @@ import { getAllPosts } from "@/lib/posts";
 
 export const metadata: Metadata = {
   title: "Writing",
-  description: "Articles on machine learning, GANs and LLMs, from my Towards Data Science posts to new notes on RAG and agents.",
+  description: "Articles on machine learning, GANs and more.",
 };
 
 export default async function WritingPage() {

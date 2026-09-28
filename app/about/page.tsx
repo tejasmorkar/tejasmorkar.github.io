@@ -4,7 +4,7 @@ import { TALKS } from "@/lib/talks";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Software engineer at Cohesity working on LLM features. Here's what I do and how I got here.",
+  description: "Software engineer at Cohesity. Here's what I do and how I got here.",
 };
 
 export default function AboutPage() {
@@ -14,7 +14,7 @@ export default function AboutPage() {
 
       <div className="mt-8 space-y-5 text-base leading-relaxed text-muted">
         <p>
-          I&apos;m a Software Engineer II (MTS II) at Cohesity. I work on
+          I&apos;m a Software Engineer III (MTS III) at Cohesity. I work on
           Gaia, Cohesity&apos;s generative AI assistant that uses RAG and LLMs
           to give insights from enterprise backup data. My part of it is
           secure, private data integration for customers and letting people

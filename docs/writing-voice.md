@@ -24,6 +24,28 @@ friend.** Plain words, real details, a bit of humour, no corporate or AI polish.
 5. **No emojis in body text.** (His old site had one emoji per section
    heading, like "Presentations 👨‍🏫". Don't add them unless he asks.)
 
+## Match the tone to the place
+
+- **Intro, bio, About, metadata**: clear, complete, professional sentences.
+  "I am a Software Engineer III at Cohesity, working on Gaia..." Warm but not
+  chatty. At most one light personal line at the end (the home page ends with
+  "I'm always up for a chat about code, coffee and MotoGP.").
+- **Articles and blog posts**: his conversational teaching style described
+  below.
+- **Small UI touches** (theme toggle messages, 404, toasts): playful jokes are
+  fine, but get his OK on the wording first.
+
+## How he positions himself
+
+- Software Engineer III (MTS III) at Cohesity, working on Gaia.
+- Interested in **deep learning broadly, from GANs to large language models**.
+  Don't frame him as only an LLM / RAG / agents person.
+- Don't promise what he will write about next. He hasn't decided.
+- On the home page, don't mention his location or name his previous employer
+  (describe it as "building AI-driven features for enterprise data
+  protection"). Work history pages can name companies.
+- Current interests: MotoGP (football was years ago).
+
 ## What his writing does
 
 **Talks to the reader.** "You" is his most common pronoun (about 16 per 1,000

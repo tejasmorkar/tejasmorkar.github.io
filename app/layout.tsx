@@ -27,10 +27,10 @@ export const metadata: Metadata = {
   keywords: [
     "Tejas Morkar",
     "software engineer",
-    "LLM engineering",
-    "RAG",
-    "agentic AI",
+    "deep learning",
     "machine learning",
+    "LLMs",
+    "GANs",
   ],
   authors: [{ name: "Tejas Morkar" }],
   openGraph: {

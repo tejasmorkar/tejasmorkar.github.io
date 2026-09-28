@@ -21,7 +21,7 @@ export default function ResumePage() {
         </a>
       </div>
       <p className="mt-2 text-sm text-muted">
-        Software Engineer | LLMs, RAG and agentic systems | Pune, India
+        Software Engineer III at Cohesity
       </p>
 
       <section className="mt-10">

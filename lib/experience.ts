@@ -10,7 +10,7 @@ export type Role = {
 export const ROLES: Role[] = [
   {
     company: "Cohesity",
-    title: "Software Engineer II (MTS II)",
+    title: "Software Engineer III (MTS III)",
     location: "Pune, India",
     dateRange: "Dec 2024 - Present",
     summary:
