@@ -10,9 +10,7 @@ export default function ResumePage() {
   return (
     <div className="mx-auto max-w-3xl px-6 py-16">
       <div className="flex flex-wrap items-baseline justify-between gap-4">
-        <h1 className="text-2xl font-semibold tracking-tight">
-          Tejas Morkar
-        </h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Tejas Morkar</h1>
         <a
           href="/resume.pdf"
           className="rounded-md border border-border px-3 py-1.5 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
@@ -31,14 +29,45 @@ export default function ResumePage() {
         <div className="mt-4 space-y-8">
           {ROLES.map((role) => (
             <div key={role.company}>
-              <div className="flex flex-wrap items-baseline justify-between gap-x-3">
-                <h3 className="font-medium text-foreground">
-                  {role.title} · {role.company}
-                </h3>
-                <span className="font-mono text-xs text-muted">
-                  {role.dateRange}
-                </span>
-              </div>
+              {role.positions.length > 1 ? (
+                <>
+                  <div className="flex flex-wrap items-baseline justify-between gap-x-3">
+                    <h3 className="font-medium text-foreground">
+                      {role.company}
+                    </h3>
+                    <span className="font-mono text-xs text-muted">
+                      {role.dateRange}
+                    </span>
+                  </div>
+                  <ul className="mt-1 space-y-0.5">
+                    {role.positions.map((position) => (
+                      <li
+                        key={position.title}
+                        className="flex flex-wrap items-baseline justify-between gap-x-3 text-sm text-foreground"
+                      >
+                        <span>{position.title}</span>
+                        <span className="font-mono text-xs text-muted">
+                          {position.dateRange}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : (
+                <div className="flex flex-wrap items-baseline justify-between gap-x-3">
+                  <h3 className="font-medium text-foreground">
+                    {role.positions[0].title} · {role.company}
+                  </h3>
+                  <span className="font-mono text-xs text-muted">
+                    {role.dateRange}
+                  </span>
+                </div>
+              )}
+              {role.transition && (
+                <p className="mt-1 text-xs text-muted italic">
+                  {role.transition}
+                </p>
+              )}
               <ul className="mt-2 list-disc space-y-1 pl-4 text-sm leading-relaxed text-muted">
                 {[role.summary, ...role.bullets].map((line) => (
                   <li key={line}>{line}</li>

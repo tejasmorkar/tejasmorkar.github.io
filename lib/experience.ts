@@ -1,18 +1,40 @@
+export type Position = {
+  title: string;
+  dateRange: string;
+};
+
 export type Role = {
   company: string;
-  title: string;
   location: string;
   dateRange: string;
+  // Newest first. More than one entry means promotions within the company.
+  positions: Position[];
+  // How this role continued from the previous (older) entry, when it wasn't a job switch.
+  transition?: string;
   summary: string;
   bullets: string[];
 };
 
+// TODO: replace with the month MTS III started.
+const MTS3_START = "??? 2026";
+
 export const ROLES: Role[] = [
   {
     company: "Cohesity",
-    title: "Software Engineer III (MTS III)",
     location: "Pune, India",
     dateRange: "Dec 2024 - Present",
+    positions: [
+      {
+        title: "Software Engineer III (MTS III)",
+        dateRange: `${MTS3_START} - Present`,
+      },
+      {
+        title: "Software Engineer II (MTS II)",
+        dateRange: `Dec 2024 - ${MTS3_START}`,
+      },
+    ],
+    transition:
+      "Moved to Cohesity when it acquired Veritas' enterprise data protection business in Dec 2024.",
     summary:
       "Working on Gaia, Cohesity's generative AI assistant that uses RAG and LLMs to give insights from enterprise backup data.",
     bullets: [
@@ -22,9 +44,14 @@ export const ROLES: Role[] = [
   },
   {
     company: "Veritas",
-    title: "Associate Software Engineer",
     location: "Pune, India",
     dateRange: "Jul 2022 - Dec 2024",
+    positions: [
+      {
+        title: "Associate Software Engineer",
+        dateRange: "Jul 2022 - Dec 2024",
+      },
+    ],
     summary:
       "Explored and built AI features to solve customer problems using LangChain, LlamaIndex and Azure OpenAI GPT models.",
     bullets: [
@@ -35,9 +62,14 @@ export const ROLES: Role[] = [
   },
   {
     company: "PTC",
-    title: "Information Security Intern",
     location: "Pune, India",
     dateRange: "Aug 2021 - Jun 2022",
+    positions: [
+      {
+        title: "Information Security Intern",
+        dateRange: "Aug 2021 - Jun 2022",
+      },
+    ],
     summary:
       "Handled live cybersecurity incident investigations and built tools using vendor APIs.",
     bullets: [
@@ -46,9 +78,14 @@ export const ROLES: Role[] = [
   },
   {
     company: "CDAC",
-    title: "ML Software Developer Intern",
     location: "Mumbai, India",
     dateRange: "Sep 2020 - Mar 2021",
+    positions: [
+      {
+        title: "ML Software Developer Intern",
+        dateRange: "Sep 2020 - Mar 2021",
+      },
+    ],
     summary:
       "Researched adversarial ML techniques and built fake-news detection models using BERT and GRU-based RNNs.",
     bullets: [],
@@ -57,7 +94,8 @@ export const ROLES: Role[] = [
 
 export const EDUCATION = {
   school: "Pimpri Chinchwad College of Engineering (PCCoE), Pune",
-  degree: "B.E. in Computer Science, 9.51 CGPA with Honors in AI and Machine Learning",
+  degree:
+    "B.E. in Computer Science, 9.51 CGPA with Honors in AI and Machine Learning",
   dateRange: "2018 - 2022",
 };
 
