@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Static session decks with vendored minified bundles, served as-is.
+    "public/**",
   ]),
 ]);
 

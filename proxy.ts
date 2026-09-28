@@ -7,7 +7,7 @@ import type { NextRequest } from "next/server";
 // redirects(), because that config's route matching treats a trailing slash
 // as optional and a redirect rule defined there loops on the already-slashed
 // request.
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   if (/^\/pccoe\/[^/]+$/.test(pathname)) {

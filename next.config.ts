@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
   // Next's default trailing-slash redirect always strips the slash, which we
   // need to keep for /pccoe/<slug>/ so the deck's *relative* asset paths
   // (vendor/..., deck.js) resolve against the right directory in the browser.
-  // The no-slash -> slash redirect itself is handled in middleware.ts, since
+  // The no-slash -> slash redirect itself is handled in proxy.ts, since
   // Next's config-level route matching treats a trailing slash as optional
   // and a redirect rule defined here loops on the already-slashed request.
   skipTrailingSlashRedirect: true,

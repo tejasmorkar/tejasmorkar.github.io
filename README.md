@@ -24,7 +24,7 @@ them the form fails with a clear error instead of silently dropping submissions.
 ## Deploy
 
 Hosted on Vercel with the custom domain `tejasmorkar.dev` (DNS points there, not
-GitHub Pages). Push to `master` to deploy.
+GitHub Pages). Push to `main` to deploy.
 
 ## Known follow-ups
 
