@@ -66,7 +66,8 @@ quotes Yann LeCun and Max Tegmark. Always credits images ("Image by Author").
 
 **Ends warmly.** A "CONCLUSION" or "So, that is it!", then an invitation:
 "feel free to contact me", "Keep Learning!". His old README: "Feel free to reach
-out to me for anything related to code, coffee and football."
+out to me for anything related to code, coffee and football." (Football was
+then. He's more into MotoGP now, so use MotoGP for anything current.)
 
 **Uses contractions freely**: you'll, don't, let's, that's, I'll.
 

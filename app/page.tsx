@@ -12,7 +12,7 @@ export default function HomePage() {
         LLMs into real products with RAG and agents. Before this, I was at
         Veritas building AI features with LangChain and Azure OpenAI. I live
         in Pune, India, and I&apos;m always up for a chat about code, coffee
-        and football.
+        and MotoGP.
       </p>
 
       <div className="mt-10 flex flex-wrap gap-4 text-sm">
