@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
+import { SITE_URL, SITE_DESCRIPTION as DESCRIPTION } from "@/lib/site";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,10 +16,6 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
-
-const SITE_URL = "https://tejasmorkar.dev";
-const DESCRIPTION =
-  "I build and write about LLM-powered software. Software engineer working on AI/LLM feature integration, with notes on RAG, agentic systems, and shipping ML in production.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -41,13 +38,11 @@ export const metadata: Metadata = {
     url: SITE_URL,
     title: "Tejas Morkar",
     description: DESCRIPTION,
-    images: [{ url: "/og-image.png" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "Tejas Morkar",
     description: DESCRIPTION,
-    images: ["/og-image.png"],
   },
 };
 

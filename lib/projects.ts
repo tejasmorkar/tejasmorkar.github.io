@@ -39,7 +39,6 @@ export const PROJECTS: Project[] = [
       "A tunable housing-price model you can poke at in the browser — adjust neurons, learning rate, and epochs live.",
     detail:
       "An exploratory tutorial into the California Housing Price dataset, built with TensorFlow and deployed with Streamlit — no separate backend needed to share a model demo.",
-    href: "https://share.streamlit.io/tejasmorkar/housing_price_prediction_aws/app.py",
     image: "/images/projects/streamlit-housing.gif",
     imageAlt: "Streamlit housing price prediction app",
   },

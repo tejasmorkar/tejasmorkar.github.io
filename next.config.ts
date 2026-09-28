@@ -18,6 +18,38 @@ const nextConfig: NextConfig = {
   // Next's config-level route matching treats a trailing slash as optional
   // and a redirect rule defined here loops on the already-slashed request.
   skipTrailingSlashRedirect: true,
+  async redirects() {
+    // URLs from the old static site (and the GitHub project pages it used to
+    // serve under this domain) that are still linked from elsewhere.
+    return [
+      {
+        source: "/:repo(sketch-to-color|toxicity-zero-discord-bot|sudoku-solver)/:path*",
+        destination: "https://tejasmorkar.github.io/:repo/:path*",
+        permanent: true,
+      },
+      {
+        source: "/assets/presentations/:file",
+        destination: "/documents/presentations/:file",
+        permanent: true,
+      },
+      {
+        source: "/assets/SocialPreviews-tejasmorkar.png",
+        destination: "/opengraph-image",
+        permanent: true,
+      },
+      {
+        source: "/end-to-end-ai-discord-bot/:path*",
+        destination: "/documents/presentations/end-to-end-ai-discord-bot.pdf",
+        permanent: true,
+      },
+      {
+        source: "/pages/courses-and-achievements/:path*",
+        destination: "/experience",
+        permanent: true,
+      },
+      { source: "/index.html", destination: "/", permanent: true },
+    ];
+  },
   async rewrites() {
     // Static sessions live at public/pccoe/<slug>/index.html. Next's public/
     // file serving is exact-path only (no directory-index resolution), so the

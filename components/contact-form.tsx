@@ -19,6 +19,7 @@ export function ContactForm() {
       name: data.get("name"),
       email: data.get("email"),
       message: data.get("message"),
+      website: data.get("website"),
     };
 
     try {
@@ -53,6 +54,11 @@ export function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+      {/* Honeypot: hidden from people, but naive bots fill every field. */}
+      <div aria-hidden className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+        <label htmlFor="website">Website</label>
+        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
       <div>
         <label htmlFor="name" className="block text-sm font-medium">
           Name
@@ -62,6 +68,7 @@ export function ContactForm() {
           name="name"
           type="text"
           required
+          maxLength={100}
           className="mt-1.5 w-full rounded-md border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-accent"
         />
       </div>
@@ -74,6 +81,7 @@ export function ContactForm() {
           name="email"
           type="email"
           required
+          maxLength={254}
           className="mt-1.5 w-full rounded-md border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-accent"
         />
       </div>
@@ -85,6 +93,7 @@ export function ContactForm() {
           id="message"
           name="message"
           required
+          maxLength={5000}
           rows={5}
           className="mt-1.5 w-full rounded-md border border-border bg-surface px-3 py-2 text-sm outline-none focus:border-accent"
         />

@@ -36,21 +36,29 @@ export default function ProjectsPage() {
                 </a>
               )}
             </div>
-            {project.href && project.image && (
-              <a
-                href={project.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full overflow-hidden rounded-lg border border-border sm:w-56"
-              >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+            {project.image &&
+              (project.href ? (
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full overflow-hidden rounded-lg border border-border sm:w-56"
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={project.image}
+                    alt={project.imageAlt}
+                    className="h-full w-full object-cover"
+                  />
+                </a>
+              ) : (
+                // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={project.image}
                   alt={project.imageAlt}
-                  className="h-full w-full object-cover"
+                  className="w-full rounded-lg border border-border object-cover sm:w-56"
                 />
-              </a>
-            )}
+              ))}
           </article>
         ))}
       </div>
