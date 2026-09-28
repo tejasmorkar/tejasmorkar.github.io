@@ -8,10 +8,11 @@ export default function HomePage() {
         I build and write about LLM-powered software.
       </h1>
       <p className="mt-6 max-w-xl text-base leading-relaxed text-muted">
-        Software engineer working on AI/LLM feature integration — RAG
-        pipelines, agentic systems, and shipping machine learning into real
-        products. Currently at Cohesity, previously at Veritas. Based in
-        India.
+        I&apos;m a software engineer at Cohesity, where I work on bringing
+        LLMs into real products with RAG and agents. Before this, I was at
+        Veritas building AI features with LangChain and Azure OpenAI. I live
+        in Pune, India, and I&apos;m always up for a chat about code, coffee
+        and football.
       </p>
 
       <div className="mt-10 flex flex-wrap gap-4 text-sm">

@@ -39,7 +39,7 @@ export function ContactForm() {
       setStatus("success");
       form.reset();
     } catch {
-      setErrorMessage("Network error — try again.");
+      setErrorMessage("Network error. Please try again.");
       setStatus("error");
     }
   }

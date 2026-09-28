@@ -3,7 +3,7 @@ import { PROJECTS } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Projects",
-  description: "Personal and open-source projects.",
+  description: "Sideline projects I built outside of my day job.",
 };
 
 export default function ProjectsPage() {
@@ -11,7 +11,7 @@ export default function ProjectsPage() {
     <div className="mx-auto max-w-3xl px-6 py-16">
       <h1 className="text-2xl font-semibold tracking-tight">Projects</h1>
       <p className="mt-4 max-w-xl text-sm text-muted">
-        Personal and open-source work — not what I ship at my day job.
+        Sideline projects I built outside of my day job.
       </p>
 
       <div className="mt-10 space-y-14">

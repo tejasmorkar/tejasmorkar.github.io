@@ -1,4 +1,4 @@
 export const SITE_URL = "https://tejasmorkar.dev";
 
 export const SITE_DESCRIPTION =
-  "I build and write about LLM-powered software. Software engineer working on AI/LLM feature integration, with notes on RAG, agentic systems, and shipping ML in production.";
+  "Tejas Morkar is a software engineer at Cohesity working on LLM features with RAG and agents. Projects, talks and articles on AI and machine learning.";

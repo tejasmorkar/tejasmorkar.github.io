@@ -7,7 +7,7 @@ const noopSubscribe = () => () => {};
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
-  // false during SSR/hydration, true on the client — the theme is unknown until then.
+  // false during SSR and hydration, true on the client, since the theme is unknown until then.
   const mounted = useSyncExternalStore(noopSubscribe, () => true, () => false);
 
   if (!mounted) {

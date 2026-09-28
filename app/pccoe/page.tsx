@@ -14,9 +14,9 @@ export default function PccoePage() {
         PCCoE session archive
       </h1>
       <p className="mt-4 max-w-xl text-sm text-muted">
-        Materials from sessions I&apos;ve run for students at PCCoE, my alma
-        mater. Shared directly with students/faculty — not linked from the
-        main site nav.
+        Material from the sessions I take for students at PCCoE, my college.
+        This page is shared directly with students and faculty, so it
+        isn&apos;t in the site menu.
       </p>
 
       <ul className="mt-10 space-y-4">

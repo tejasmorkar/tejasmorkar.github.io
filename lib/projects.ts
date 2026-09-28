@@ -13,9 +13,9 @@ export const PROJECTS: Project[] = [
     slug: "sketch-to-color",
     title: "Sketch to Color",
     description:
-      "Image-to-image translation with a Conditional GAN — turns anime line art into fully colored artwork.",
+      "An image-to-image translation model using Conditional GANs that takes a black and white anime sketch and gives you a colored version of it.",
     detail:
-      "Trained on a Kaggle dataset of 14.2k sketch-color pairs. The demo runs the generator on new sketches in the browser.",
+      "Trained on the Anime Sketch-Colorization Pair dataset from Kaggle, which has 14.2k sketch-color pairs. I wrote the full walkthrough as part two of my GANs series.",
     href: "https://tejasmorkar.github.io/sketch-to-color/",
     image: "https://tejasmorkar.github.io/sketch-to-color/assets/outputs.gif",
     imageAlt: "Sketch to Color output examples",
@@ -24,9 +24,9 @@ export const PROJECTS: Project[] = [
     slug: "toxicity-zero",
     title: "ToxicityZero Discord Bot",
     description:
-      "A moderation bot that scores message toxicity in real time and flags it before it spreads.",
+      "A bot for helping reduce toxicity levels on Discord servers to zero.",
     detail:
-      "Built with discord.js and TensorFlow.js, deployed on Azure App Services with continuous WebJobs. Originally built for a Microsoft Learn Student Ambassadors session.",
+      "Built with discord.js and TensorFlow.js for a Microsoft Learn Student Ambassadors session, and deployed on Azure App Services with continuous WebJobs so it stays up.",
     href: "https://tejasmorkar.github.io/toxicity-zero-discord-bot/",
     image:
       "https://tejasmorkar.github.io/toxicity-zero-discord-bot/assets/toxicity-zero-bot-working.gif",
@@ -34,11 +34,11 @@ export const PROJECTS: Project[] = [
   },
   {
     slug: "housing-price-prediction",
-    title: "Housing Price Prediction — Streamlit App",
+    title: "Housing Price Prediction with Streamlit",
     description:
-      "A tunable housing-price model you can poke at in the browser — adjust neurons, learning rate, and epochs live.",
+      "A Streamlit web app that hosts a housing price prediction model you can tweak on the web itself. You can change the number of neurons, the learning rate and the epochs.",
     detail:
-      "An exploratory tutorial into the California Housing Price dataset, built with TensorFlow and deployed with Streamlit — no separate backend needed to share a model demo.",
+      "It's an exploratory tutorial on the California Housing Price dataset, with the model built using TensorFlow in Python.",
     image: "/images/projects/streamlit-housing.gif",
     imageAlt: "Streamlit housing price prediction app",
   },
@@ -46,8 +46,8 @@ export const PROJECTS: Project[] = [
     slug: "cervical-cancer-detection",
     title: "Cervical Cancer Detection",
     description:
-      "A deep-learning web platform for cervical cancer screening, with built-in patient–doctor interaction.",
+      "A deep learning based web platform for cervical cancer detection and patient-doctor interaction.",
     detail:
-      "Classifies cervical cells in Pap smear images using transfer learning with TensorFlow, deployed on GCP — the model achieved top-of-class accuracy.",
+      "We achieved top in the class accuracy in classification of cervical cells in Pap smear images using transfer learning. Built with TensorFlow and deployed on GCP.",
   },
 ];

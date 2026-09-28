@@ -6,7 +6,7 @@ export type PccoeSession = {
 
 export const PCCOE_SESSIONS: PccoeSession[] = [
   {
-    title: "System Design — OOM & SD",
+    title: "System Design - OOM & SD",
     date: "18 Aug 2026",
     href: "/pccoe/18aug2026/",
   },

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Tejas Morkar — I build and write about LLM-powered software.";
+export const alt = "Tejas Morkar | I build and write about LLM-powered software.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -27,7 +27,7 @@ export default function Image() {
             I build and write about LLM-powered software.
           </div>
           <div style={{ fontSize: 32, color: "#9aa0a6" }}>
-            RAG pipelines · agentic systems · shipping ML into real products
+            Software Engineer @ Cohesity | RAG, agents and machine learning
           </div>
         </div>
         <div style={{ fontSize: 28, color: "#9aa0a6" }}>tejasmorkar.dev</div>

@@ -4,7 +4,7 @@ import { TALKS } from "@/lib/talks";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Software engineer working on LLM feature integration, and how I got here.",
+  description: "Software engineer at Cohesity working on LLM features. Here's what I do and how I got here.",
 };
 
 export default function AboutPage() {
@@ -14,37 +14,37 @@ export default function AboutPage() {
 
       <div className="mt-8 space-y-5 text-base leading-relaxed text-muted">
         <p>
-          I&apos;m a Software Engineer II at Cohesity, where I work on
-          integrating LLMs into the product — RAG pipelines, agentic
-          workflows, and the unglamorous plumbing that makes a language model
-          actually useful inside a real application. Right now that means
-          Gaia, Cohesity&apos;s generative AI assistant for enterprise backup
-          data.
+          I&apos;m a Software Engineer II (MTS II) at Cohesity. I work on
+          Gaia, Cohesity&apos;s generative AI assistant that uses RAG and LLMs
+          to give insights from enterprise backup data. My part of it is
+          secure, private data integration for customers and letting people
+          ask questions about their data in plain English.
         </p>
 
         <p>
-          Before that, I spent two and a half years at Veritas as an
-          Associate Software Engineer. I built Alta Copilot, a multi-agent
-          system on LangGraph with RAG, NL-to-SQL, and decision-making
-          agents, along with the LLMOps evaluation and observability around
-          it, and did Java and Spring Boot work on NetBackup and Alta View.
+          Before Cohesity, I was an Associate Software Engineer at Veritas for
+          about two and a half years. One of the main things I built there was
+          Alta Copilot, a multi-agent system on LangGraph with RAG, NL-to-SQL
+          and decision-making agents. I implemented the LangGraph framework
+          for it from scratch and also set up the LLMOps evaluation pipelines
+          and observability. Apart from that, I worked on NetBackup and Alta
+          View modules with Java and Spring Boot.
         </p>
 
         <p>
-          Before any of that, I was a student at Pimpri Chinchwad College of
-          Engineering in Pune, deep in machine learning for its own sake. I
-          built a Conditional GAN that turns sketches into colored art,
-          trained a Discord bot to catch toxic messages before they spread,
-          and spent a lot of nights in Kaggle notebooks. I ran technical
-          events and mentored other students through Microsoft Learn Student
-          Ambassadors, DSC PCCoE, and the PCCoE ACM Student Chapter, and
-          edited for ACM&apos;s XRDS magazine. None of that is current — it&apos;s
-          where the habit of building things and explaining them came from.
+          I studied Computer Science at Pimpri Chinchwad College of
+          Engineering (PCCoE), Pune, and graduated in 2022 with Honors in AI
+          and Machine Learning. College is where I got into ML. I built a
+          Conditional GAN that colors anime sketches, a Discord bot that
+          catches toxic messages, and wrote about GANs and ML on Towards Data
+          Science. I was also a Microsoft Learn Student Ambassador, Management
+          Head at Google DSC PCCoE, Technical Head and Webmaster at the PCCoE
+          ACM Student Chapter, and a technical author for ACM XRDS magazine.
         </p>
 
         <p>
-          I still go back occasionally to guest-lecture for students in my
-          old department at PCCoE. Session materials live at{" "}
+          I still go back to PCCoE sometimes to take sessions for students. You
+          can find the material from those sessions at{" "}
           <Link href="/pccoe" className="text-accent hover:underline">
             /pccoe
           </Link>

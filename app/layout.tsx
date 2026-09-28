@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: "Tejas Morkar",
-    template: "%s — Tejas Morkar",
+    template: "%s | Tejas Morkar",
   },
   description: DESCRIPTION,
   keywords: [

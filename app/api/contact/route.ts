@@ -51,7 +51,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         error:
-          "Contact form isn't configured yet — RESEND_API_KEY and CONTACT_TO_EMAIL need to be set.",
+          "The contact form isn't set up yet. RESEND_API_KEY and CONTACT_TO_EMAIL need to be set.",
       },
       { status: 500 },
     );
@@ -70,7 +70,7 @@ export async function POST(request: Request) {
   if (error) {
     console.error("Resend send failed:", error);
     return NextResponse.json(
-      { error: "Failed to send — try again or email me directly." },
+      { error: "Couldn't send your message. Please try again or email me directly." },
       { status: 502 },
     );
   }

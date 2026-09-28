@@ -9,7 +9,7 @@ export type Talk = {
 
 export const TALKS: Talk[] = [
   {
-    title: "Introduction to Gen AI — GANs & LLMs",
+    title: "Introduction to Gen AI - GANs & LLMs",
     date: "Apr 2025",
     venue: "",
     description:
@@ -18,7 +18,7 @@ export const TALKS: Talk[] = [
     image: "/images/presentations/introtogenai.png",
   },
   {
-    title: "Introduction to GANs — Exploring the Potential of Generative AI",
+    title: "Introduction to GANs - Exploring the Potential of Generative AI",
     date: "Nov 2023",
     venue: "ATAL Academy Faculty Development Program, Computer Vision",
     description:
@@ -45,7 +45,7 @@ export const TALKS: Talk[] = [
     image: "/images/presentations/end-to-end-ai-discord-bot.png",
   },
   {
-    title: "Pie & AI: Pune — Intro to GANs",
+    title: "Pie & AI: Pune - Intro to GANs",
     date: "Oct 2020",
     venue: "DeepLearning.AI meetup, hosted by PCCoE ACM Student Chapter",
     description:
@@ -54,7 +54,7 @@ export const TALKS: Talk[] = [
     image: "/images/presentations/intro-to-gans.png",
   },
   {
-    title: "Opensource — Why and How?",
+    title: "Opensource - Why and How?",
     date: "Sep 2020",
     venue: "DSC PCCoE, with PCCoE ACM Student Chapter",
     description: "A hands-on workshop for getting started with open-source collaboration.",
