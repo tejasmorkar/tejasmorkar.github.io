@@ -35,17 +35,13 @@ export default function ResumePage() {
                 <h3 className="font-medium text-foreground">
                   {role.title} · {role.company}
                 </h3>
-                <span
-                  className={`font-mono text-xs ${
-                    role.dateVerified ? "text-muted" : "text-accent"
-                  }`}
-                >
+                <span className="font-mono text-xs text-muted">
                   {role.dateRange}
                 </span>
               </div>
               <ul className="mt-2 list-disc space-y-1 pl-4 text-sm leading-relaxed text-muted">
-                {role.bullets.map((bullet) => (
-                  <li key={bullet}>{bullet}</li>
+                {[role.summary, ...role.bullets].map((line) => (
+                  <li key={line}>{line}</li>
                 ))}
               </ul>
             </div>
@@ -59,7 +55,7 @@ export default function ResumePage() {
         </h2>
         <div className="mt-4 flex flex-wrap items-baseline justify-between gap-x-3">
           <h3 className="font-medium text-foreground">{EDUCATION.school}</h3>
-          <span className="font-mono text-xs text-accent">
+          <span className="font-mono text-xs text-muted">
             {EDUCATION.dateRange}
           </span>
         </div>
@@ -74,12 +70,6 @@ export default function ResumePage() {
           {SKILLS.join(" · ")}
         </p>
       </section>
-
-      <p className="mt-14 text-xs text-accent">
-        [VERIFY — swap /resume.pdf with your real resume file at
-        public/resume.pdf; dates above marked in accent color need
-        confirming]
-      </p>
     </div>
   );
 }

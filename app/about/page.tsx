@@ -17,11 +17,17 @@ export default function AboutPage() {
           I&apos;m a Software Engineer II at Cohesity, where I work on
           integrating LLMs into the product — RAG pipelines, agentic
           workflows, and the unglamorous plumbing that makes a language model
-          actually useful inside a real application. Before that, I was an
-          Associate Software Engineer at Veritas.{" "}
-          <span className="text-xs text-accent">
-            [VERIFY — add a sentence on what you worked on at Veritas]
-          </span>
+          actually useful inside a real application. Right now that means
+          Gaia, Cohesity&apos;s generative AI assistant for enterprise backup
+          data.
+        </p>
+
+        <p>
+          Before that, I spent two and a half years at Veritas as an
+          Associate Software Engineer. I built Alta Copilot, a multi-agent
+          system on LangGraph with RAG, NL-to-SQL, and decision-making
+          agents, along with the LLMOps evaluation and observability around
+          it, and did Java and Spring Boot work on NetBackup and Alta View.
         </p>
 
         <p>

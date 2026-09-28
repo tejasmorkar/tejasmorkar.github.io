@@ -26,13 +26,13 @@ them the form fails with a clear error instead of silently dropping submissions.
 Hosted on Vercel with the custom domain `tejasmorkar.dev` (DNS points there, not
 GitHub Pages). Push to `main` to deploy.
 
+## Updating content
+
+Experience, education, and skills live in `lib/experience.ts` and feed both the
+Experience and Resume pages — keep them in sync with `public/resume.pdf`.
+
 ## Known follow-ups
 
-- Several facts in `lib/experience.ts` and `app/about/page.tsx` are marked
-  `[VERIFY]` — pulled from the public GitHub profile since LinkedIn couldn't be
-  scraped. Confirm dates and fill in the Veritas details.
-- `public/resume.pdf` doesn't exist yet — add the real file for the Resume
-  page's download button to work.
 - Contact form needs a [Resend](https://resend.com) account; set
   `RESEND_API_KEY` and `CONTACT_TO_EMAIL` in Vercel's project env vars. The
   `from` address defaults to Resend's shared `onboarding@resend.dev` sender —

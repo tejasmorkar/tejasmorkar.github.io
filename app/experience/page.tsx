@@ -19,28 +19,26 @@ export default function ExperiencePage() {
                 {role.title} · {role.company}
               </h2>
             </div>
-            <p
-              className={`mt-1 font-mono text-xs ${
-                role.dateVerified ? "text-muted" : "text-accent"
-              }`}
-            >
-              {role.dateRange}
+            <p className="mt-1 font-mono text-xs text-muted">
+              {role.dateRange} · {role.location}
             </p>
             <p className="mt-3 text-sm leading-relaxed text-muted">
               {role.summary}
             </p>
-            <ul className="mt-3 list-disc space-y-1.5 pl-4 text-sm leading-relaxed text-muted">
-              {role.bullets.map((bullet) => (
-                <li key={bullet}>{bullet}</li>
-              ))}
-            </ul>
+            {role.bullets.length > 0 && (
+              <ul className="mt-3 list-disc space-y-1.5 pl-4 text-sm leading-relaxed text-muted">
+                {role.bullets.map((bullet) => (
+                  <li key={bullet}>{bullet}</li>
+                ))}
+              </ul>
+            )}
           </li>
         ))}
 
         <li className="border-l border-border pl-6">
           <h2 className="font-medium text-foreground">{EDUCATION.school}</h2>
           <p className="mt-1 text-sm text-muted">{EDUCATION.degree}</p>
-          <p className="mt-1 font-mono text-xs text-accent">
+          <p className="mt-1 font-mono text-xs text-muted">
             {EDUCATION.dateRange}
           </p>
         </li>
