@@ -1,5 +1,6 @@
 import type { NextConfig } from "next";
 import createMDX from "@next/mdx";
+import { withBotId } from "botid/next/config";
 
 const nextConfig: NextConfig = {
   pageExtensions: ["ts", "tsx", "mdx"],
@@ -23,7 +24,8 @@ const nextConfig: NextConfig = {
     // serve under this domain) that are still linked from elsewhere.
     return [
       {
-        source: "/:repo(sketch-to-color|toxicity-zero-discord-bot|sudoku-solver)/:path*",
+        source:
+          "/:repo(sketch-to-color|toxicity-zero-discord-bot|sudoku-solver)/:path*",
         destination: "https://tejasmorkar.github.io/:repo/:path*",
         permanent: true,
       },
@@ -54,10 +56,12 @@ const nextConfig: NextConfig = {
     // Static sessions live at public/pccoe/<slug>/index.html. Next's public/
     // file serving is exact-path only (no directory-index resolution), so the
     // trailing-slash URL needs an explicit rewrite to the real file.
-    return [{ source: "/pccoe/:slug/", destination: "/pccoe/:slug/index.html" }];
+    return [
+      { source: "/pccoe/:slug/", destination: "/pccoe/:slug/index.html" },
+    ];
   },
 };
 
 const withMDX = createMDX({});
 
-export default withMDX(nextConfig);
+export default withBotId(withMDX(nextConfig));

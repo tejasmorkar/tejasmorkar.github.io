@@ -28,7 +28,16 @@ export function ContactForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      const body = await res.json();
+      // Rate-limited requests are answered by the Vercel Firewall, not the API
+      // route, so the body isn't our JSON.
+      if (res.status === 429) {
+        setErrorMessage(
+          "You've sent a few messages already. Please try again in a few minutes.",
+        );
+        setStatus("error");
+        return;
+      }
+      const body = await res.json().catch(() => ({}));
 
       if (!res.ok) {
         setErrorMessage(body.error ?? "Something went wrong.");
@@ -39,7 +48,10 @@ export function ContactForm() {
       setStatus("success");
       form.reset();
     } catch {
-      setErrorMessage("Network error. Please try again.");
+      // Also reached if BotID's browser check can't load: point people to email.
+      setErrorMessage(
+        "Couldn't send your message. Please try again or email me directly.",
+      );
       setStatus("error");
     }
   }
@@ -55,9 +67,18 @@ export function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="mt-8 space-y-5">
       {/* Honeypot: hidden from people, but naive bots fill every field. */}
-      <div aria-hidden className="absolute -left-[9999px] h-0 w-0 overflow-hidden">
+      <div
+        aria-hidden
+        className="absolute -left-[9999px] h-0 w-0 overflow-hidden"
+      >
         <label htmlFor="website">Website</label>
-        <input id="website" name="website" type="text" tabIndex={-1} autoComplete="off" />
+        <input
+          id="website"
+          name="website"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
       </div>
       <div>
         <label htmlFor="name" className="block text-sm font-medium">

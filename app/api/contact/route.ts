@@ -1,12 +1,23 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
+import { checkBotId } from "botid/server";
 
 const LIMITS = { name: 100, email: 254, message: 5000 };
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-const field = (value: unknown) => (typeof value === "string" ? value.trim() : "");
+const field = (value: unknown) =>
+  typeof value === "string" ? value.trim() : "";
+
+const SEND_FAILED =
+  "Couldn't send your message. Please try again or email me directly.";
 
 export async function POST(request: Request) {
+  // Scripted requests that don't come from a real browser session.
+  const { isBot } = await checkBotId();
+  if (isBot) {
+    return NextResponse.json({ error: SEND_FAILED }, { status: 403 });
+  }
+
   let body: Record<string, unknown>;
   try {
     body = await request.json();
@@ -35,10 +46,16 @@ export async function POST(request: Request) {
     email.length > LIMITS.email ||
     message.length > LIMITS.message
   ) {
-    return NextResponse.json({ error: "That message is too long." }, { status: 400 });
+    return NextResponse.json(
+      { error: "That message is too long." },
+      { status: 400 },
+    );
   }
   if (!EMAIL_RE.test(email)) {
-    return NextResponse.json({ error: "Please enter a valid email address." }, { status: 400 });
+    return NextResponse.json(
+      { error: "Please enter a valid email address." },
+      { status: 400 },
+    );
   }
 
   const apiKey = process.env.RESEND_API_KEY;
@@ -69,10 +86,7 @@ export async function POST(request: Request) {
 
   if (error) {
     console.error("Resend send failed:", error);
-    return NextResponse.json(
-      { error: "Couldn't send your message. Please try again or email me directly." },
-      { status: 502 },
-    );
+    return NextResponse.json({ error: SEND_FAILED }, { status: 502 });
   }
 
   return NextResponse.json({ ok: true });
