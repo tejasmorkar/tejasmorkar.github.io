@@ -1,0 +1,172 @@
+export const meta = {
+  "title": "How to use Streamlit to deploy your ML models wrapped in beautiful web apps",
+  "date": "2020-07-28",
+  "summary": "Don’t waste your time learning Django or Flask and focus more on the Machine Learning part!",
+  "originalUrl": "https://medium.com/data-science/how-to-use-streamlit-to-deploy-your-ml-models-wrapped-in-beautiful-web-apps-66e07c3dd525",
+  "publication": "Towards Data Science"
+};
+
+*Don’t waste your time learning Django or Flask and focus more on the Machine Learning part!*
+
+![California Housing Price Prediction — Streamlit Web App (Image by Author)](/images/writing/deploy-ml-models-with-streamlit/01.png)
+
+*California Housing Price Prediction — Streamlit Web App (Image by Author)*
+
+If you are like me or any other Machine Learning enthusiast, the worst nightmare for you, obviously other than the Cuda errors, must be deploying the model elsewhere to present your work to your friends and networks on the internet. There are many ways to go around and achieve this, but in this article, I will share with you why I think Streamlit is the go-to solution for it.
+
+To keep this article organized and easy to refer, let’s divide it into a few parts so that you can jump directly to whichever part that seems important for you.
+
+-   *What are the alternatives?*
+-   *Why Streamlit?*
+-   *How to make a Streamlit Web App from your existing ML code?*
+-   *How to deploy the Streamlit Web App?*
+-   *Conclusion*
+
+#### ALTERNATIVES
+
+There are a few other ways to deploy ML web apps but all of them have some drawbacks, the most noticeable one being that nothing is as easy and quick as Streamlit.
+
+**TensorFlow.js** is TensorFlow’s official way of deploying ML models using Javascript. This is a very awesome way of quickly\* deploying simple ML models to the Web but when it comes to complex models, many of them are not yet supported by this library and not all models that work in Python will guarantee to work in the same way in Javascript.
+
+*\*Even when I say quickly, it still requires more work and time than what you’ll require for Streamlit!*
+
+[TensorFlow.js | Machine Learning for JavaScript Developers](https://www.tensorflow.org/js)
+
+**Flask** is a small framework in python which allows you to use your Python skills to develop and deploy web apps. If you compare this to Streamlit, you’ll require a lot more time to code and also design a decent web app.
+
+[Welcome to Flask - Flask Documentation (2.0.x)](https://flask.palletsprojects.com/en/1.1.x/)
+
+**Django** is a Python-based web development framework. Using this framework to deploy your ML models is a good way of presenting it wrapped in a web app but this will require a lot of time and understanding of the framework in particular.
+
+[Django](https://www.djangoproject.com/)
+
+#### WHY STREAMLIT?
+
+Machine Learning enthusiasts shouldn’t have to waste their time learning web development, so that they can focus on their target, which is, building better models!
+
+And that’s exactly how ***Streamlit*** helps us. It is the easiest and quickest way to build web apps that can present your ML models and data attractively using it’s awesome UI elements and Markdown.
+
+[Streamlit \* The fastest way to build and share data apps](https://www.streamlit.io/)
+
+Now after praising Streamlit so many times for being easy and quick to use, what do I mean by it? To understand this, let me share with you how I came across this amazing framework.
+
+I am interested in Generative Adversarial Networks and currently, I’m exploring and building some projects using different kinds of GANs. To share my journey through this exploration and to document my projects, I started composing a [GANs Series](https://towardsdatascience.com/tagged/gans-series), which is a series of articles about GANs and their implementation.
+
+The worst roadblock that hit me in the path was not being able to deploy a Conditional-GAN model which converts black and white sketch images to color images. The model architecture which I used for the Generator model was a U-Net model that has quite a few skip connections. You can browse through the detailed explanation with step-by-step code blocks to train the model from [this article](/writing/sketch-to-color-image-generation-gans).
+
+![U-NET Model Architecture — (Image Source: https://en.wikipedia.org/wiki/U-Net)](/images/writing/deploy-ml-models-with-streamlit/02.png)
+
+*U-NET Model Architecture — (Image Source: [https://en.wikipedia.org/wiki/U-Net](https://en.wikipedia.org/wiki/U-Net))*
+
+I tried all the alternatives for web deployment discussed earlier. The model did not seem to work as expected in TensorFlow.js and I spent almost a week learning & trying out the Django Framework.
+
+This is when I came across [this excellent article](https://towardsdatascience.com/build-an-app-to-synthesize-photorealistic-faces-using-tensorflow-and-streamlit-dd2545828021) by [Adrien Treuille](https://medium.com/u/39dfc90d7a34) where he shows how he used Streamlit to make an impressive web app with great UI for a TL-GAN in **under 13 lines of Streamlit code!**
+
+It took me around 15 minutes to go through their basic documentation on the website and when I tried implementing it for my model, Adrien wasn’t exaggerating, it only took me 12 lines of Streamlit code to load the trained model, wrap it in the UI shown below and make it ready for deployment.
+
+![Sketch to Color Image Generation using Conditional GAN — Streamlit Web App (Image by author)](/images/writing/deploy-ml-models-with-streamlit/03.png)
+
+*Sketch to Color Image Generation using Conditional GAN — Streamlit Web App (Image by author)*
+
+#### MAKING A WEB APP FROM THE EXISTING ML CODE
+
+> Yes, you read it correctly,  
+> You Can Just Add a Few Streamlit Function Calls to Your Existing Python File and No Need of Any HTML, CSS or JAVASCRIPT code to Design Your Web App!
+
+All you have to do is install the Streamlit package from pip and add few Streamlit functions to the existing python file. To **install Streamlit** just use the command:
+
+pip install streamlit
+
+To check whether the installation was successful and explore around in their **hello world app**, simply use the command:
+
+streamlit hello
+
+Once, you have your Streamlit installed and have made the required changes as per your needs, you just have to use a single command to **run the web app locally**.
+
+streamlit run file\_name.py
+
+***It has various cool and helpful features like:***
+
+-   ***Live changes when you save the file***
+-   ***Rerun the app by simply pressing R on the keyboard***
+-   ***Clear cache by simply pressing C on the keyboard***
+-   ***Record the web app and save a video file locally to share with everyone***
+-   ***…And much more***
+
+I have added a GitHub gist below to show you how I added Streamlit function calls to the existing python code of the Sketch-to-Color Image Generation model to make it a fully functional web app as shown in the image above.
+
+*The code which I had before adding the Streamlit code is commented out to make it easier to see what changes were required. If you wish to see the code for the Sketch-to-Color Image Generation model, you can go through the article* [*linked here*](/writing/sketch-to-color-image-generation-gans)*.*
+
+```python
+import streamlit as st
+# regular imports for the model
+
+st.write('# Sketch to Color Image Generation using Conditional GANs')  
+
+# to store the model creation to cache
+@st.cache() 
+def load_model():    
+    # load the generator model
+    return generator 
+
+# blank placeholder for inserting image
+my_placeholder = st.empty() 
+
+# add 2 buttons in sidebar
+show_original_image = st.sidebar.button('Show Original Image') 
+generate_color_image = st.sidebar.button('Generate Color Image')
+
+def load_image():
+    # load image and preprocess it
+    
+    my_placeholder.pyplot(width=200, height=200)
+    return input_img
+
+if show_original_image: # if button is pressed
+    load_image()
+
+if generate_color_image: # if button is pressed
+    with st.spinner('Generating Color Image...'): # loader widget
+        # make predictions and load colored image
+        my_placeholder.pyplot()
+    st.success('Color Image Generated Successfully!') # success widget 
+    st.balloons() # just for fun, shows balloon animations on the page
+```
+
+***That’s it! Literally 13 lines of extra code if you include the import statements and if…else conditions that I have implemented.***
+
+#### DEPLOYING THE STREAMLIT WEB APP
+
+There are various options available for you to deploy your web apps built using Streamlit.
+
+**Heroku** is a reliable way to deploy these web apps without needing to use any other cloud services and set up virtual instances on them. Heroku takes care of everything for us. But one drawback of Heroku is that it only allows a size of 512MB in the free version of dynos and TensorFlow 2.2.0 needs a little more space for the installation. You could use any lower versions than 2.0.0 if your code doesn’t break.
+
+**Amazon Web Services** is another great place to deploy the Streamlit apps and it is easier than you’d think. Just launch a new EC2 instance with Ubuntu 18.04 or higher install the dependencies and run the streamlit run file\_name.py command. You’ll get a public URL that you can share with your friends and networks online so that they can go through your awesome web app.
+
+**GitHub repository** is another cool way of hosting the code for the Streamlit web app. This cannot be counted as an entire deployment method but one of the excellent features of Streamlite is that **it allows a link to the code in the streamlit run command**. So, if the users have all the dependencies installed on their systems along with the Streamlit package, they can easily run your app by providing a link to the .py file. For example, you can run my Streamlit web app locally on your systems by using the following command:
+
+streamlit run [https://raw.githubusercontent.com/tejasmorkar/housing\_price\_prediction\_aws/master/CaliforniaHousingPrices.py](https://raw.githubusercontent.com/tejasmorkar/housing_price_prediction_aws/master/CaliforniaHousingPrices.py)
+
+**Streamlit** is still a new framework and is working to bring new and cool features for its users. Some of which are discussed in their [roadmap](https://github.com/streamlit/streamlit/wiki/Roadmap). And one of the most exciting features that I am waiting for is a one-click easy deployment for Streamlit Web Apps. Read more about it in the [discussion forum](https://discuss.streamlit.io/t/the-streamlit-roadmap-big-plans-for-2020/2054).
+
+***Here is a video of a simple Web App that I’ve deployed on the AWS EC2 instance with Ubuntu 18.04.***
+
+<YouTube src="https://www.youtube-nocookie.com/embed/QBdgXgLdUtk" />
+
+#### CONCLUSION
+
+So, this is why I feel that Streamlit is such an impressive framework that can help everyone focus on the important parts of Machine Learning development and release the stress required on the deployment part.
+
+> Focus less on deployment and more on solving Cuda errors!
+
+To get started with Streamlit just hop onto the official docs provided by them on the link — [https://docs.streamlit.io/en/stable/](https://docs.streamlit.io/en/stable/)
+
+And if you have any doubts regarding any of the stuff from getting started to deploying the Streamlit web app, you can search on the discussion forum or shoot a new question. You’ll find solutions to almost all the queries answered by the community members and the Streamlit team — [https://discuss.streamlit.io/](https://discuss.streamlit.io/)
+
+If you have any doubts, suggestions, errors, or feedback, feel free to contact me via any medium that best suits you!
+
+#### My Contact Information:
+
+**Email:** [*tejasmorkar@gmail.com*](mailto:tejasmorkar@gmail.com)**LinkedIn**: [*https://www.linkedin.com/in/tejasmorkar*](https://www.linkedin.com/in/tejasmorkar/)*/***  
+GitHub**: [*https://github.com/tejasmorka*](https://github.com/tejasmorkar)*r*  
+**Twitter**: [*https://twitter.com/TejasMorka*](https://twitter.com/TejasMorkar)*r*

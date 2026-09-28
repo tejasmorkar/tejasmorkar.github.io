@@ -32,6 +32,7 @@ export default async function WritingPage() {
                   month: "long",
                   day: "numeric",
                 })}
+                {post.publication && ` · ${post.publication}`}
               </p>
               <p className="mt-2 text-sm leading-relaxed text-muted">
                 {post.summary}

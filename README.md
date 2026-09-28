@@ -17,7 +17,10 @@ them the form fails with a clear error instead of silently dropping submissions.
 
 - `app/` — routes (Home, About, Experience, Projects, Writing, Resume, Contact,
   plus an unlisted `/pccoe` archive for PCCoE session materials)
-- `content/blog/*.mdx` — blog posts, each exporting a `meta` object
+- `content/blog/*.mdx` — blog posts, each exporting a `meta` object. Posts
+  republished from Medium set `originalUrl` and `publication`: the page links
+  back to the original, its canonical URL points there, and it's left out of
+  the sitemap. Their images live in `public/images/writing/<slug>/`.
 - `lib/` — content data (experience, projects, talks) and blog helpers
 - `public/pccoe/` — static session decks, served byte-for-byte at `/pccoe/...`
 

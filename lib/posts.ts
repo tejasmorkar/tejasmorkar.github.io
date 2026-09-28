@@ -7,6 +7,8 @@ export type PostMeta = {
   title: string;
   date: string;
   summary: string;
+  originalUrl?: string;
+  publication?: string;
 };
 
 export function getPostSlugs(): string[] {

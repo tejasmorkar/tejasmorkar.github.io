@@ -1,0 +1,133 @@
+export const meta = {
+  "title": "Generative Adversarial Networks | GANs",
+  "date": "2020-05-25",
+  "summary": "Understanding GANs in a Simpler way",
+  "originalUrl": "https://medium.com/data-science/generative-adversarial-networks-gans-8fc303ad5fa1",
+  "publication": "Towards Data Science"
+};
+
+*GANs Series, part 1 — Understanding GANs in a Simpler way*
+
+Referring to GANs, Yann LeCun, the chief AI Scientist at Facebook and ACM Turing Award Laureate has publicly quoted that the Adversarial Training is,
+
+> “The most interesting idea in the last 10 years in ML”
+
+GANs are a relatively recent invention in the field of ML. It was introduced by Ian Goodfellow et al. in 2014 through this amazing [research paper](https://arxiv.org/abs/1406.2661).
+
+#### Now, what exactly is so amazing about GANs?
+
+![Photo by Road Trip with Raj on Unsplash](/images/writing/generative-adversarial-networks-gans/01.jpg)
+
+*Photo by [Road Trip with Raj](https://unsplash.com/@roadtripwithraj?utm_source=medium&utm_medium=referral) on [Unsplash](https://unsplash.com?utm_source=medium&utm_medium=referral)*
+
+Let us first look at the terms individually — Generative Adversarial Network  
+What does Generative mean?
+
+Deep Learning can be divided into two types of model objectives, which are
+
+-   **Discriminative Models**  
+    These models are used to map a single possible output from the given input data. The most common example you can think of, in this domain is a classifier. Their goal is to simply identify a class of the input data such as ‘spam or not spam’, or like handwritten character recognition, and others.  
+    These models capture the conditional probability P(y|x), which is ‘Probability of y given x’.
+-   **Generative Models**  
+    These models are used to find a probability distribution of a dataset and generate similarly structured data.  
+    Generative models are primarily meant to find the **density function** from the given probability distribution of the data. As shown in the diagram below, the points represent the distribution of the data in a 1-dimensional axis which is fitted by the gaussian density in the right image.
+
+![Density Estimation — Image Replicated by Author from the NIPS 2016 Tutorial: Generative Adversarial Networks](/images/writing/generative-adversarial-networks-gans/02.png)
+
+***Density Estimation** — Image Replicated by Author from the [NIPS 2016 Tutorial: Generative Adversarial Networks](https://arxiv.org/abs/1701.00160)*
+
+GANs do not focus on finding this density function accurately rather they observe the given dataset and generate new samples that fit the underlying structure in the given data samples by the help of two models which are **adversaries** of each other. Hence the name — ***Generative Adversarial Networks***
+
+### Working of GANs
+
+GANs consist of two models, namely:
+
+-   **Generator**  
+    Its function is to take an input noise vector (z) and map it to an image that hopefully resembles the images in the training dataset.
+-   **Discriminator**  
+    The primary purpose of the discriminator model is to find out which image is from the actual training dataset and which is an output from the generator model.
+
+![Basic Structure of GANs consisting of the Generator and the Discriminator Models (Image by Author)](/images/writing/generative-adversarial-networks-gans/03.png)
+
+*Basic Structure of GANs consisting of the Generator and the Discriminator Models (Image by Author)*
+
+You can imagine the generator model to be counterfeiters who want to generate fake currency and fool everyone in believing that it is real, and the discriminator model is the police who want to identify the fake currency and catch the counterfeiters.
+
+At the beginning the counterfeiters generate random currency that does not resemble the real currency at all. After being caught by the police, they learn from the mistakes \[loss of the models in our case\]and generate new currency which is better than the previous one.
+
+![An example where the fake currency is not similar to the real one (Image by Author)](/images/writing/generative-adversarial-networks-gans/04.png)
+
+***An example where the fake currency is not similar to the real one** (Image by Author)*
+
+This way, the police get better at discriminating the fake money from the real one, and simultaneously, the counterfeiters get better at generating money that looks similar to the real money.
+
+![The point where counterfeiters become well trained in generating fake money (Image by Author)](/images/writing/generative-adversarial-networks-gans/05.png)
+
+***The point where counterfeiters become well trained in generating fake money** (Image by Author)*
+
+This is a min-max 2-player game between the models where the generator model tries to minimize its loss and maximize the discriminator loss.  
+As a result, the generator model maps the input vector (z) to an output which is similar to the data in the training dataset.
+
+In the end, there comes a point when the discriminator can no longer identify the fake output, making its accuracy approximately 50%. This means that it is now making a random guess in discriminating between fake and real data. This is known as the point of Nash Equilibrium.
+
+> NOTE: In practice, it is very difficult to reach this equilibrium point and there are problems which arise due to this. One of which is the **Mode Collapse problem** where the generator produces a very good output in the early stages of the training and then uses it more oftenly as the discriminator isn’t yet able to classify it as fake. As a result, the generator only learns to output data which has very little diversity in it. There are ways to overcome this by various methods like using a different loss function like the [**Wasserstein loss**](https://arxiv.org/abs/1701.07875)**.**
+
+### What can GANs do?
+
+The primary objective of GANs was to generate new samples from the given dataset. And since the invention of GANs, they have grown to accomplish this task with better results and added features.
+
+![Ian J. Goodfellow et al. 2014, Generative Adversarial Networks](/images/writing/generative-adversarial-networks-gans/06.png)
+
+*Ian J. Goodfellow et al. 2014, [Generative Adversarial Networks](https://arxiv.org/abs/1406.2661)*
+
+The images above show the output results from the first paper of GANs by Ian Goodfellow et al. in 2014. Set a) contains the outputs generated on the MNIST Dataset of Handwritten digits, set b) shows results for the Toronto Face Dataset, set c) has the outputs from a fully connected model on the CIFAR-10 Dataset, and set d) contains the outputs generated by a convolutional discriminator and a “deconvolutional” generator model on the CIFAR-10 Dataset.
+
+**Progressive GAN** was introduced in 2017 where the authors showed that the quality of the generated images can be increased significantly by training the generator to output low-resolution images at the beginning and increase the resolution as the training went on. This way, they were able to generate high-quality images of faces of 1024x1024 res from the generator trained on the CelebA HQ Dataset.
+
+![Tero Karras, Timo Aila, Samuli Laine, Jaakko Lehtinen 2017, Progressive Growing of GANs for Improved Quality, Stability, and Variation](/images/writing/generative-adversarial-networks-gans/07.png)
+
+*Tero Karras, Timo Aila, Samuli Laine, Jaakko Lehtinen 2017, [Progressive Growing of GANs for Improved Quality, Stability, and Variation](https://arxiv.org/abs/1710.10196)*
+
+The paper on **DCGANs** was one of the most important researches which showed that using deep convolutions in the GAN models helped to produce better results. They did not use any fully connected and pooling layers which helped them increase efficiency.
+
+One interesting point in this paper was the **Vector Space Arithmetic** which showed that the output results could be changed based on simple arithmetic equations such as shown in the image below.
+
+![Alec Radford et al. 2015, Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks](/images/writing/generative-adversarial-networks-gans/08.png)
+
+*Alec Radford et al. 2015, [Unsupervised Representation Learning with Deep Convolutional Generative Adversarial Networks](https://arxiv.org/abs/1511.06434)*
+
+**Cycle-GANs** were able to map input classes to the desired output set. The training is done on two sets of data and with no other labels required. The model learns to transform one set of images into the other.
+
+In the images below you can see how the Horse images are transformed into the zebra images. An interesting point to note here is that the model learns that horses are mainly associated with the greener grasslands relative to the zebras. So, the model results in giving an output that has a darker background for zebras. This also results in greener horses when we try to transform a zebra image into a horse.
+
+![Jun-Yan Zhu, Taesung Park, Phillip Isola, Alexei A. Efros 2017, Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks](/images/writing/generative-adversarial-networks-gans/09.png)
+
+*Jun-Yan Zhu, Taesung Park, Phillip Isola, Alexei A. Efros 2017, [Unpaired Image-to-Image Translation using Cycle-Consistent Adversarial Networks](https://arxiv.org/abs/1703.10593)*
+
+Finally, one of the most interesting GAN variations is the **StarGAN.** It takes an input image of the face and then maps it to its corresponding elevated facial features.
+
+For example, you can input a face and transform it into an opposite gender, make it younger or older, change its skin color, and much more.
+
+The right side of the below-given image shows how it is possible to change the facial expressions of any input face using the StarGAN.
+
+![Yunjey Choi et al. 2017, StarGAN: Unified Generative Adversarial Networks for Multi-Domain Image-to-Image Translation](/images/writing/generative-adversarial-networks-gans/10.png)
+
+*Yunjey Choi et al. 2017, [StarGAN: Unified Generative Adversarial Networks for Multi-Domain Image-to-Image Translation](https://arxiv.org/abs/1711.09020)*
+
+### Conclusion
+
+So, you’ve seen how powerful GANs are and what are they capable of doing. The most amazing thing about GANs is that it is a very simple implementation of a rather complex objective.
+
+If you have a basic understanding of how a Convolutional Neural Network works and the base of backpropagation, then you can pretty much start working on GANs right away. This article was for introducing the fundamental working behind a Generative Adversarial Network and how its variation can help to generate different and better results.
+
+***In further posts, I’ll be sharing how to build a GAN from scratch and generate wonderful results from it. I’ve built a DCGAN to generate new faces from the CelebA Dataset and a Conditional GAN which learns to take a black and white sketch of an anime and transform it into a colored output as shown below.***
+
+![Generative Adversarial Networks | GANs](/images/writing/generative-adversarial-networks-gans/11.gif)
+
+![Training of the DCGAN models on datasets showing MNIST on the left and CelebA on the right (Images by Author)](/images/writing/generative-adversarial-networks-gans/12.gif)
+
+*Training of the DCGAN models on datasets showing **MNIST on the left** and **CelebA on the right** (Images by Author)*
+
+![The left column has the previously unseen test images of black and white sketches, the right column has the colored output images predicted by the model without knowing the ground truth (Image by Author)](/images/writing/generative-adversarial-networks-gans/13.png)
+
+***The left column has the previously unseen test images of black and white sketches, the right column has the colored output images predicted by the model without knowing the ground truth** (Image by Author)*
