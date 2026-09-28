@@ -1,24 +1,51 @@
 "use client";
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
-import { createPortal } from "react-dom";
 import { useTheme } from "next-themes";
 
 const noopSubscribe = () => () => {};
-const TOAST_MS = 3500;
+const CONGRATS_MS = 3000;
+
+type Popover = "none" | "warn" | "congrats";
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   // false during SSR and hydration, true on the client, since the theme is unknown until then.
-  const mounted = useSyncExternalStore(noopSubscribe, () => true, () => false);
-  const dialogRef = useRef<HTMLDialogElement>(null);
-  const [showToast, setShowToast] = useState(false);
+  const mounted = useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false,
+  );
+  const [popover, setPopover] = useState<Popover>("none");
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const stayRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
-    if (!showToast) return;
-    const timer = setTimeout(() => setShowToast(false), TOAST_MS);
-    return () => clearTimeout(timer);
-  }, [showToast]);
+    if (popover === "congrats") {
+      const timer = setTimeout(() => setPopover("none"), CONGRATS_MS);
+      return () => clearTimeout(timer);
+    }
+    if (popover !== "warn") return;
+
+    stayRef.current?.focus();
+    const close = () => {
+      setPopover("none");
+      toggleRef.current?.focus();
+    };
+    const onPointer = (e: PointerEvent) => {
+      if (!wrapperRef.current?.contains(e.target as Node)) setPopover("none");
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") close();
+    };
+    document.addEventListener("pointerdown", onPointer);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onPointer);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [popover]);
 
   if (!mounted) {
     return <div className="size-8" aria-hidden />;
@@ -28,25 +55,28 @@ export function ThemeToggle() {
 
   function handleClick() {
     if (isDark) {
-      dialogRef.current?.showModal();
+      setPopover(popover === "warn" ? "none" : "warn");
     } else {
       setTheme("dark");
-      setShowToast(true);
+      setPopover("congrats");
     }
   }
 
   function goLight() {
-    dialogRef.current?.close();
-    setShowToast(false);
+    setPopover("none");
     setTheme("light");
+    toggleRef.current?.focus();
   }
 
   return (
-    <>
+    <div ref={wrapperRef} className="relative">
       <button
+        ref={toggleRef}
         type="button"
         onClick={handleClick}
         aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+        aria-expanded={popover === "warn"}
+        aria-controls="theme-popover"
         className="flex size-8 items-center justify-center rounded-md text-muted transition-colors hover:text-foreground"
       >
         {isDark ? (
@@ -82,55 +112,53 @@ export function ThemeToggle() {
         )}
       </button>
 
-      <dialog
-        ref={dialogRef}
-        aria-labelledby="light-warning-title"
-        className="m-auto w-[min(26rem,calc(100%-2rem))] rounded-xl border border-border bg-background p-6 text-foreground shadow-2xl backdrop:bg-black/60 backdrop:backdrop-blur-sm"
-      >
-        <p className="font-mono text-xs tracking-wide text-accent uppercase">
-          Flashbang warning
-        </p>
-        <h2 id="light-warning-title" className="mt-2 text-lg font-semibold">
-          Whoa, hold on!
-        </h2>
-        <p className="mt-3 text-sm leading-relaxed text-muted">
-          Light mode is about to hit your eyes at 300&nbsp;km/h. MotoGP riders pull
-          their visor down for less. Are you sure you want to continue?
-        </p>
-        <div className="mt-6 flex flex-wrap justify-end gap-3">
-          <button
-            type="button"
-            autoFocus
-            onClick={() => dialogRef.current?.close()}
-            className="rounded-md border border-border px-4 py-2 text-sm font-medium transition-colors hover:border-accent hover:text-accent"
-          >
-            Stay in the dark
-          </button>
-          <button
-            type="button"
-            onClick={goLight}
-            className="rounded-md bg-accent px-4 py-2 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90"
-          >
-            Visor down, let&apos;s go
-          </button>
-        </div>
-      </dialog>
-
-      {createPortal(
+      {popover === "warn" && (
         <div
-          role="status"
-          aria-live="polite"
-          className="pointer-events-none fixed inset-x-0 bottom-6 z-50 flex justify-center px-4"
+          id="theme-popover"
+          role="dialog"
+          aria-labelledby="theme-popover-title"
+          className="absolute top-full right-0 z-20 mt-2 w-64 rounded-lg border border-border bg-surface p-3 text-left shadow-lg"
         >
-          {showToast && (
-            <p className="rounded-full border border-border bg-surface px-4 py-2 text-sm text-foreground shadow-lg">
-              <span className="font-semibold text-accent">+1</span> for your
-              eyes! Good call, light attracts bugs anyway.
-            </p>
-          )}
-        </div>,
-        document.body,
+          <p
+            id="theme-popover-title"
+            className="text-sm font-medium text-foreground"
+          >
+            Flashbang warning!
+          </p>
+          <p className="mt-1 text-xs leading-relaxed text-muted">
+            Light mode hits your eyes at 300&nbsp;km/h. MotoGP riders pull their
+            visor down for less.
+          </p>
+          <div className="mt-3 flex justify-end gap-2">
+            <button
+              ref={stayRef}
+              type="button"
+              onClick={() => {
+                setPopover("none");
+                toggleRef.current?.focus();
+              }}
+              className="rounded-md border border-border px-2.5 py-1 text-xs font-medium text-foreground transition-colors hover:border-accent hover:text-accent"
+            >
+              Stay dark
+            </button>
+            <button
+              type="button"
+              onClick={goLight}
+              className="rounded-md bg-accent px-2.5 py-1 text-xs font-medium text-accent-foreground transition-opacity hover:opacity-90"
+            >
+              Visor down
+            </button>
+          </div>
+        </div>
       )}
-    </>
+      <div role="status" aria-live="polite">
+        {popover === "congrats" && (
+          <p className="absolute top-full right-0 z-20 mt-2 w-max max-w-64 rounded-lg border border-border bg-surface px-3 py-2 text-xs text-foreground shadow-lg">
+            <span className="font-semibold text-accent">+1</span> for your eyes!
+            Good call, light attracts bugs anyway.
+          </p>
+        )}
+      </div>
+    </div>
   );
 }
