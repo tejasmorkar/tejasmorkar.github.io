@@ -63,11 +63,6 @@ export default function ResumePage() {
                   </span>
                 </div>
               )}
-              {role.transition && (
-                <p className="mt-1 text-xs text-muted italic">
-                  {role.transition}
-                </p>
-              )}
               <ul className="mt-2 list-disc space-y-1 pl-4 text-sm leading-relaxed text-muted">
                 {[role.summary, ...role.bullets].map((line) => (
                   <li key={line}>{line}</li>

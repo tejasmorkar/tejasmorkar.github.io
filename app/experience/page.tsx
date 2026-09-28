@@ -11,14 +11,9 @@ export default function ExperiencePage() {
     <div className="mx-auto max-w-3xl px-6 py-16">
       <h1 className="text-2xl font-semibold tracking-tight">Experience</h1>
 
-      <ol className="mt-10">
+      <ol className="mt-10 space-y-10">
         {ROLES.map((role) => (
-          // A transition keeps the timeline line unbroken into the next
-          // (older) entry. A job switch leaves a gap.
-          <li
-            key={role.company}
-            className={`border-l border-border pl-6 ${role.transition ? "pb-8" : "mb-10"}`}
-          >
+          <li key={role.company} className="border-l border-border pl-6">
             <h2 className="font-medium text-foreground">{role.company}</h2>
             <p className="mt-1 font-mono text-xs text-muted">
               {role.dateRange} · {role.location}
@@ -66,26 +61,6 @@ export default function ExperiencePage() {
                   <li key={bullet}>{bullet}</li>
                 ))}
               </ul>
-            )}
-
-            {role.transition && (
-              <p className="mt-6 inline-flex items-start gap-2 rounded-md border border-border bg-surface px-3 py-2 text-xs leading-relaxed text-muted">
-                <svg
-                  aria-hidden
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  className="mt-0.5 size-3.5 shrink-0 text-accent"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M8 13V3M4 7l4-4 4 4"
-                  />
-                </svg>
-                {role.transition}
-              </p>
             )}
           </li>
         ))}

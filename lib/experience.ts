@@ -9,8 +9,6 @@ export type Role = {
   dateRange: string;
   // Newest first. More than one entry means promotions within the company.
   positions: Position[];
-  // How this role continued from the previous (older) entry, when it wasn't a job switch.
-  transition?: string;
   summary: string;
   bullets: string[];
 };
@@ -32,8 +30,6 @@ export const ROLES: Role[] = [
         dateRange: `Dec 2024 - ${MTS3_START}`,
       },
     ],
-    transition:
-      "Moved to Cohesity when it acquired Veritas' enterprise data protection business in Dec 2024.",
     summary:
       "Working on Gaia, Cohesity's generative AI assistant that uses RAG and LLMs to give insights from enterprise backup data.",
     bullets: [
