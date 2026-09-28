@@ -3,9 +3,9 @@ export type Project = {
   title: string;
   description: string;
   detail: string;
-  href: string;
-  image: string;
-  imageAlt: string;
+  href?: string;
+  image?: string;
+  imageAlt?: string;
 };
 
 export const PROJECTS: Project[] = [
@@ -42,5 +42,13 @@ export const PROJECTS: Project[] = [
     href: "https://share.streamlit.io/tejasmorkar/housing_price_prediction_aws/app.py",
     image: "/images/projects/streamlit-housing.gif",
     imageAlt: "Streamlit housing price prediction app",
+  },
+  {
+    slug: "cervical-cancer-detection",
+    title: "Cervical Cancer Detection",
+    description:
+      "A deep-learning web platform for cervical cancer screening, with built-in patient–doctor interaction.",
+    detail:
+      "Classifies cervical cells in Pap smear images using transfer learning with TensorFlow, deployed on GCP — the model achieved top-of-class accuracy.",
   },
 ];

@@ -25,28 +25,32 @@ export default function ProjectsPage() {
               <p className="mt-2 text-sm leading-relaxed text-muted">
                 {project.detail}
               </p>
+              {project.href && (
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-block text-sm font-medium text-accent hover:underline"
+                >
+                  View project &rarr;
+                </a>
+              )}
+            </div>
+            {project.href && project.image && (
               <a
                 href={project.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-3 inline-block text-sm font-medium text-accent hover:underline"
+                className="block w-full overflow-hidden rounded-lg border border-border sm:w-56"
               >
-                View project &rarr;
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={project.image}
+                  alt={project.imageAlt}
+                  className="h-full w-full object-cover"
+                />
               </a>
-            </div>
-            <a
-              href={project.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block w-full overflow-hidden rounded-lg border border-border sm:w-56"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={project.image}
-                alt={project.imageAlt}
-                className="h-full w-full object-cover"
-              />
-            </a>
+            )}
           </article>
         ))}
       </div>
