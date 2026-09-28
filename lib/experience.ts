@@ -15,8 +15,7 @@ export type Role = {
   bullets: string[];
 };
 
-// TODO: replace with the month MTS III started.
-const MTS3_START = "??? 2026";
+const MTS3_START = "Oct 2026";
 
 export const ROLES: Role[] = [
   {
