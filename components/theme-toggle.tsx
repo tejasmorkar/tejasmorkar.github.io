@@ -123,11 +123,10 @@ export function ThemeToggle() {
             id="theme-popover-title"
             className="text-sm font-medium text-foreground"
           >
-            Flashbang warning!
+            Are you sure?
           </p>
           <p className="mt-1 text-xs leading-relaxed text-muted">
-            Light mode hits your eyes at 300&nbsp;km/h. MotoGP riders pull their
-            visor down for less.
+            Light mode is going to feel like opening the fridge at 3&nbsp;AM.
           </p>
           <div className="mt-3 flex justify-end gap-2">
             <button
@@ -146,7 +145,7 @@ export function ThemeToggle() {
               onClick={goLight}
               className="rounded-md bg-accent px-2.5 py-1 text-xs font-medium text-accent-foreground transition-opacity hover:opacity-90"
             >
-              Visor down
+              Open the fridge
             </button>
           </div>
         </div>
